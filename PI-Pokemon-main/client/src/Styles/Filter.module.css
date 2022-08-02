@@ -2,28 +2,38 @@
     display: flex;
     flex-direction: column;
     width: 140px;
-    height: 150px;
+    height: 100px;
     align-items:center;
     justify-content: space-evenly;
     position: relative;
-    margin-top: -230px;
+    margin-top: -290px;
     color: white;
-    cursor: pointer;
+
 }
 .order{
+
     color: white;
     width: 140px;
-    height: 50px;
+    height: 20px;
     position: absolute;
-    margin-top: 380px;
-    cursor: pointer;
+    margin-top: 450px;
 }
 
 .order2{
+
     color: white;
     width: 140px;
-    height: 50px;
+    height: 20px;
     position: absolute;
-    margin-top: 500px;
+    margin-top: 600px;
+}
+
+.orderAlph{
+
+    cursor: pointer;
+}
+
+.orderAttack{
+
     cursor: pointer;
 }

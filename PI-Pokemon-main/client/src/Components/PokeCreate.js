@@ -18,12 +18,8 @@ function validate(input){
   }else if(!pattern.test(input.name)){
     errors.name = 'El nombre solo puede contener letras';
     //-------Tipos---------------
-  }else if (input.type.length<0){
+  }else if (input.type.length||!input.type.length<0){
     errors.types = 'Se debe ingresar al menos un tipo'
-  }else if(input.type.length>1){
-    errors.types = 'No puede agregar mas de 2 tipos'
-  }else if (!urlImg(input.image)) {
-      errors.image = "La URL no es valida";
   }
   return errors;
 };
@@ -332,13 +328,16 @@ useEffect(()=>{
                       onChange={handleChange}
                     />
                   </div>            
-                {/* </div>
-                  <select>
-                    {types.map((t)=>(
-                      <option value={t.name}>{}t.name</option>
-                    ))}
-                  </select>
-                <div> */}
+                </div>
+                  {/* <select>
+                    {type?.map((t)=>{
+                      return(
+                        <option value={t.name} key={t.id}>{t.name}</option>
+                      )
+                      
+                    })}
+                  </select> */}
+                <div>
 
                 </div>
                 <div className={Style.apariencia}>

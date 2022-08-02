@@ -4,7 +4,7 @@ const initialState = {
     pokemons : [],
     allPokes:[],
     tipos:[],
-    detail:{}
+    detail:[]
 };
 
 function rootPokemon (state= initialState, action){
@@ -36,22 +36,39 @@ function rootPokemon (state= initialState, action){
                     :created
                 }
         case 'ORDER_BY_NAME':
-            const allPokes = state.pokemons
-            const sortedPokessAlph = action.payload === 'ascAlp'?
-            allPokes.sort(function(a,b){
-                    if(a.name>b.name){return 1}
-                    if(b.name>a.name){return -1}
-                    return 0;
-                }):
-                allPokes.sort(function(a,b){
-                    if(a.name>b.name){return -1}
-                    if(b.name>a.name){return 1}
-                    return 0;
-                })
+            // console.log(state.pokemons);
+            let  sortedApl = action.payload === 'ascAlp' ?
+            state.pokemons.sort(function(a,b){
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return 1;
+              }
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                return -1;
+              }
+              return 0;
+
+
+            })
+            : state.pokemons.sort(function(a,b){
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                    return -1;
+                  }
+                  if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                    return 1;
+                  }
+                  return 0;
+            })
                 return {
                     ...state,
-                    pokemons: sortedPokessAlph
+                    pokemons: sortedApl
                 }
+
+
+
+
+
+
+                
          case 'ORDER_BY_ATK':
                 let  sortedMinMax = [...state.allPokes]
                 sortedMinMax = action.payload === 'ascAtk' ?

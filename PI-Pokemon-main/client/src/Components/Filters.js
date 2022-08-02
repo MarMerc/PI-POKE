@@ -11,7 +11,7 @@ import { filterPokesByTypes } from '../Actions';
 export default function Filters() {
 
     const dispatch= useDispatch();
-    const [orden,setOrden] = useState('');
+    const [orden,setOrden] = useState(' ');
     const [currentPage,setCurrentPage]=useState(1);
 
     function handleFilterTypes(e){
@@ -37,25 +37,22 @@ export default function Filters() {
   return (
     <div className={Style.selecVert}>
         <div className={Style.order}>
-            <h6>Order Alphabetically...</h6>
-            <select onChange={e=>handleSortAlph(e)}>
-                <option disabled onFocus='true'>Order Alph...</option>
+            <select onChange={(e)=>handleSortAlph(e)} className={Style.orderAlph}>
+                {/* <option disabled onFocus>Order Alph...</option> */}
                 <option value='ascAlp' >Asc</option>
                 <option value='descAlp'>Desc</option>
             </select>
         </div>   
         <div className={Style.order2}>
-            <h6>Order by Attack...</h6>
-            <select onChange={e=>handleSortAyk(e)}>
-                <option disabled onFocus='true'>Order Atk...</option>
+            <select onChange={e=>handleSortAyk(e)} className={Style.orderAttack}>
+                {/* <option disabled onFocus='true'>Order Atk...</option> */}
                 <option value='ascAtk' >Asc</option>
                 <option value='descAtk'>Desc</option>
             </select>
         </div> 
         <div>
-            <h6>Filter by Types</h6>
             <select onChange={e=>handleFilterTypes(e)}>
-                {/* <option disabled='false' onFocus='true'>Order by types...</option> */}
+                {/* <option disabled onFocus='true'>Order by types...</option> */}
                 <option value='all'>All</option>
                 <option value='normal' >Normal</option>
                 <option value='fighting'>Fighting</option>
@@ -80,9 +77,8 @@ export default function Filters() {
             </select>
         </div> 
         <div>
-            <h6>Filter by Origin</h6>
             <select onChange={e=>handleFilterDB(e)}>
-                {/* <option disabled='false' onFocus='true'>Origin...</option> */}
+                {/* <option disabled onFocus='true'>Origin...</option> */}
                 <option value='all'>All</option>
                 <option value='api'>De la Api</option>
                 <option value='db'>De la DB</option>

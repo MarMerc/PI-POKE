@@ -8,7 +8,7 @@ export default function Card({id,name,image,types,attack}) {
         <div className={Style.card}  >
           <div className={Style.Name}key={id}>
           
-            <h3>{name.charAt(0).toUpperCase()+name.slice(1)}</h3>
+            <h3>{name}</h3>
           
           </div>
           <div>

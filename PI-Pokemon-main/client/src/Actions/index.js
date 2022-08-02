@@ -73,7 +73,7 @@ export function getAllTypes(){
 export function getNamepoke(name){
     return async function (dispatch){
         try{
-            var respuesta = await axios.get(`http://localhost:3001/pokemons?name=${name}`)
+            var respuesta = await axios.get('http://localhost:3001/pokemons?name='+name)
             return dispatch({
                 type:'GET_NAME_POKE',
                 payload: respuesta.data

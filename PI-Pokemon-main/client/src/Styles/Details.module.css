@@ -1,0 +1,103 @@
+.container {
+    width: 700px;
+    height: 500px;
+    background-color: #130b0b;
+    border-radius: 1rem;
+    border: #212121 0.2rem solid;
+    transition: all 0.4s ease-in;
+    box-shadow: 0.4rem 0.4rem 0.6rem #00000040;
+    margin: 50px;
+    margin-left: 300px;
+    color: #e9d430;
+   }
+   
+   .container:hover {
+    transform: translateY(-1.5rem);
+    border: #f2295bf0 0.2em solid;
+    border-radius: 2.5rem 0 2.5rem 0;
+   }
+
+
+.title{
+    margin-top: 5px;
+    color: #f4e739;
+    text-shadow: 2px 0 0px #800040, 3px 2px 0px rgba(77,0,38,0.5), 3px 0 3px #FF002B, 5px 0 3px #800015, 6px 2px 3px rgba(77,0,13,0.5), 6px 0 9px #FF5500, 8px 0 9px #802A00, 9px 2px 9px rgba(77,25,0,0.5), 9px 0 18px #FFD500, 11px 0 18px #fddf48, 12px 2px 18px rgba(77,66,0,0.5), 12px 0 30px #D4FF00, 14px 0 30px #df821f, 15px 2px 30px rgba(64,77,0,0.5), 15px 0 45px #d99a1b, 17px 0 45px #ea9d18, 17px 2px 45px rgba(38,77,0,0.5);
+}
+
+.columnas{
+    margin-top: -60px;
+    display: flex;
+    flex-direction: row;
+    height: 450px;
+    justify-content: space-evenly;
+}
+
+.imgPoke{
+    background-color: black;
+    margin-top: 45px;
+    width:300px;
+    height:300px;
+    border-radius:400px;
+    justify-content: space-evenly;
+    filter: drop-shadow(0 2px 5px rgba(226, 219, 68, 0.7));
+}
+
+.tipos{
+
+}
+
+.stadistic{
+display: flex;
+flex-direction: column;
+width: 90px;
+height: 500px;
+justify-content: space-evenly;
+}
+
+.stadistic h2{
+    background-color: rgb(198, 12, 12);
+    color: #d9a010;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.stadistic_horiz{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    height: 80px;
+    border-radius: 15px;
+}
+
+.stadistic_horiz{
+    margin-top: -20px;
+}
+
+.apariencia{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 500px;
+    justify-content: space-evenly;
+    margin-top: -10px;
+}
+
+.apariencia h2{
+    background-color: rgb(198, 12, 12);
+    color: #d9a010;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.loading{
+
+}

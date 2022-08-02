@@ -1,0 +1,38 @@
+.listPages{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-around;
+    width: 70%;
+    height: auto;
+    margin-top: 25px;
+    margin-left: 100px;
+   
+}
+
+.listPages li{
+    display: inline-block;
+}
+
+.aPag{
+    margin-bottom: 10px;
+    background-color: rgba(72, 13, 13, 0.284);
+    color: rgb(247, 243, 243);
+    padding: 8px 16px;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    font-weight:bold;
+}
+
+.aPag.active{
+    color: rgb(250, 245, 94);
+}
+
+.aPag:hover:not(active){
+    background-color: rgba(56, 71, 11, 0.515);
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    color: rgb(241, 182, 45);
+}

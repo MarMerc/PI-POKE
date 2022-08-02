@@ -1,0 +1,88 @@
+.Container {
+  width: 500px;
+  height: 580px;
+  background: rgb(18, 19, 1);
+  border-radius: 0.4em;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: rgb(6, 64, 10) 0.2em solid;
+  margin-top: 5px;
+  margin-left: 400px;
+  color: #f3e118;
+ }
+ 
+ .Container:hover {
+  border: #eb3911 0.2em solid;
+ }
+
+.titulo{
+  text-shadow: 1px 2px rgb(232, 110, 35);
+}
+
+.tipos{
+width: 100px;
+display: flex;
+flex-direction: column;
+text-align:end;
+margin-left: 30px;
+}
+.Filas{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.Columnas{
+
+  display: flex;
+  flex-direction:row;
+}
+
+.stadist{
+
+  margin: 5px;
+  margin-top: 10px;
+  margin-left: 50px;
+  text-align:end;
+}
+
+.apariencia{
+
+  margin: 5px;
+  margin-left: 50px;
+  text-align:end;
+}
+
+.imgVista{
+  margin-left: 50px;
+
+  text-align: end;
+  
+}
+
+.errors{
+  background-color: aliceblue;
+  border: solid red 2px;
+  color: red;
+}
+
+.errorName{
+  background-color: aliceblue;
+  border: solid red 2px;
+  color: red;
+  width: 200px;
+  margin-left: 420px;
+  margin-top: -40px;
+}
+
+.botonera{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 250px;
+  height: auto;
+  margin-top: -30px;
+  margin-left: 180px;
+}
+

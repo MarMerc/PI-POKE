@@ -1,0 +1,19 @@
+.Nav{
+    background-color: #130b0b;
+    border-radius: 1rem;
+    border: #212121 0.2rem solid;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 150px;
+    height: 400px;
+    margin-top: 40px;
+    margin: 10px; 
+}
+
+.btn{
+    margin-left: -100px;
+    margin-top: -20px;
+}
+

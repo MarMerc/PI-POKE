@@ -47,7 +47,7 @@ export default function Details(props) {
                   <div className={Style.filas}>
                     <img src={detailPokemon[0]?.image} className={Style.imgPoke} alt='pokemon vista' width='400px' height='500px'/>
                     <h4 className={Style.tipos}>Tipo: </h4>
-                    <h3>{detailPokemon.type}</h3>
+                    <h3>{detailPokemon[0]?.types.map(t=>t.name)}</h3>
                   </div>
                   <div className={Style.apariencia}>
                     <div className={Style.stadistic_horiz}>

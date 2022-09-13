@@ -4,22 +4,43 @@ import {Link,useHistory} from 'react-router-dom';
 import { postPokemon,getAllTypes, filterPokesByBd } from '../Actions';
 import Style from '../Styles/PokeCreate.module.css';
 
-function validate(input){
+function validate(e){
+
   const pattern = new RegExp('^[A-Z]+$', 'i');
+  const soloNum = new RegExp('/^[0-9]+$/');
+  
   const urlImg = (url) => {
     return /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(url);
   };
   let errors = {};
   //--------Name----------------
-  if(!input.name){
+  if(!e.name){
     errors.name = 'Se requiere un nombre'
-  }else if(input.name.lenght>20){
+  }else if(e.name.lenght>20){
     errors.name = 'El nombre no puede tener mas de 20 caracteres'
-  }else if(!pattern.test(input.name)){
+  }else if(!pattern.test(e.name)){
     errors.name = 'El nombre solo puede contener letras';
     //-------Tipos---------------
-  }else if (input.type.length||!input.type.length<0){
+  }else if (e.type.length<1){
     errors.types = 'Se debe ingresar al menos un tipo'
+  //--------------Numbers HP----------------
+  }else if(!pattern.test(e.name) || e.hp<0 || e.hp>200){
+  errors.hp = 'El rango debe ser entre 0 y 200';
+    //--------------Numbers Attack----------------
+  }else if(e.attack<0 || e.attack>100){
+    errors.attack = 'El rango debe ser entre 0 y 100';
+  //--------------Numbers Defense----------------
+    }else if(e.defense<0 || e.defense>100){
+      errors.defense = 'El rango debe ser entre 0 y 100';
+  //--------------Numbers speed----------------
+    }else if(e.speed<0 || e.speed>100){ 
+    errors.speed = 'El rango debe ser entre 0 y 100';
+  //--------------Numbers weight----------------
+    }else if(e.weight<0 || e.weight>100){ 
+  errors.weight = 'El rango debe ser entre 0 y 100';
+  //--------------Numbers height----------------
+  }else if(e.height<0 || e.height>100){ 
+    errors.height = 'El rango debe ser entre 0 y 100';
   }
   return errors;
 };
@@ -43,6 +64,17 @@ const [input, setInput] = useState({
   type:[]
 });
 
+
+const btnDisabled = !(
+  input.name &&
+  input.hp &&
+  input.attack &&
+  input.speed &&
+  input.height &&
+  input.weight &&
+  input.type.length
+);
+
 function handleChange(e){
   setInput({
     ...input,
@@ -56,22 +88,29 @@ function handleChange(e){
 }
 
 function handleCheck(e){
+  console.log('target',e.target.value);
   if(e.target.checked){
     setInput({
       ...input,
       type: [...input.type,e.target.value]
     })
+    setErrors(validate({
+      ...input,
+      type: [...input.type,e.target.value]
+    }));
   }else{
     setInput({
       ...input,
       type: input.type.filter(t=>t!==e.target.value)
     })
+    setErrors(validate({
+      ...input,
+      type: input.type.filter(t=>t!==e.target.value)
+    }));
   }
-  setErrors(validate({
-    ...input,
-    [e.target.type]: e.target.value
-  }));
 };
+
+console.log('err',errors);
 
 function handleSubmit(e){
   e.preventDefault();
@@ -97,6 +136,7 @@ useEffect(()=>{
 }, []);
 
   return (
+    <div className={Style.gral}>
         <div className={Style.Container}> 
           <form onSubmit={(e)=>handleSubmit(e)}>
             <h1 className={Style.titulo}>Create your Pokemon</h1>
@@ -112,7 +152,7 @@ useEffect(()=>{
                   <p className={Style.errorName}>{errors.name}</p>
                 )}                
             </div>
-            <div className={Style.Columnas}>
+            <div className={Style.Columnas} >
               <div className={Style.tipos}>
                 <label className={Style.titulo}>Tipos: </label>
                 <label>Normal
@@ -294,6 +334,9 @@ useEffect(()=>{
                       name='hp'
                       onChange={handleChange}
                     />
+                   {errors.hp && (
+                    <p className={Style.errors}>{errors.hp}</p>
+                  )}
                   </div>   
                   <div className={Style.horiz}>
                     <label>Attack: </label>
@@ -305,6 +348,9 @@ useEffect(()=>{
                       name='attack'
                       onChange={handleChange}
                     />
+                    {errors.attack && (
+                    <p className={Style.errors}>{errors.attack}</p>
+                  )}
                   </div> 
                   <div className={Style.horiz}>
                     <label>Defense: </label>
@@ -316,6 +362,9 @@ useEffect(()=>{
                       name='defense'
                       onChange={handleChange}
                     />
+                    {errors.defense && (
+                    <p className={Style.errors}>{errors.defense}</p>
+                  )}
                   </div>   
                   <div className={Style.horiz}>
                     <label>Speed: </label>
@@ -327,6 +376,9 @@ useEffect(()=>{
                       name='speed'
                       onChange={handleChange}
                     />
+                    {errors.speed && (
+                    <p className={Style.errors}>{errors.speed}</p>
+                  )}
                   </div>            
                 </div>
                   {/* <select>
@@ -351,6 +403,9 @@ useEffect(()=>{
                         name='weight'
                         onChange={handleChange}
                       />
+                    {errors.weight && (
+                    <p className={Style.errors}>{errors.weight}</p>
+                  )}
                     </div>   
                     <div className={Style.horiz}>
                       <label>Height: </label>
@@ -383,13 +438,15 @@ useEffect(()=>{
               </div>
             </div>
             <div className={Style.botonera}>
-              <button type='submit' className={Style.btn}>Create</button>            
+              <button type='submit' className={Style.btn} disabled={btnDisabled}>Create</button>            
               <Link to='/home' className={Style.Link}>
                 <button className={Style.btn}>Back</button>
               </Link> 
             </div>
           </form>
-        </div>
+        </div>      
+    </div>
+
   )
 }
 

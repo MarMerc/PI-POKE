@@ -1,14 +1,22 @@
+.gral{
+  background-image: url('https://images2.alphacoders.com/206/thumbbig-206292.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .Container {
   width: 500px;
   height: 580px;
-  background: rgb(18, 19, 1);
+  background: rgb(60, 62, 22);
   border-radius: 0.4em;
   box-shadow: 0.3em 0.3em 0.7em #00000015;
   transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: rgb(6, 64, 10) 0.2em solid;
   margin-top: 5px;
   margin-left: 400px;
-  color: #f3e118;
+  color: #e0d98e;
  }
  
  .Container:hover {

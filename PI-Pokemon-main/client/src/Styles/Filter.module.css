@@ -7,12 +7,9 @@
     justify-content: space-evenly;
     position: relative;
     margin-top: -290px;
-    color: white;
 
 }
 .order{
-
-    color: white;
     width: 140px;
     height: 20px;
     position: absolute;
@@ -20,8 +17,6 @@
 }
 
 .order2{
-
-    color: white;
     width: 140px;
     height: 20px;
     position: absolute;
@@ -29,11 +24,11 @@
 }
 
 .orderAlph{
-    color: white;
+
     cursor: pointer;
 }
 
 .orderAttack{
-    color: white;
+
     cursor: pointer;
 }

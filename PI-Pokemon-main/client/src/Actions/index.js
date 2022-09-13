@@ -8,6 +8,9 @@ import axios from "axios";
  export const GET_ALL_TYPES = "GET_ALL_TYPES";
  export const GET_NAME_POKE = "GET_NAME_POKE";
  export const GET_DETAIL = "GET_DETAIL";
+ export const RESET_DETAIL = "RESET_DETAIL";
+ export const ORDER_BY_HP = "ORDER_BY_HP";
+ export const FILTER_ATK = "FILTER_ATK";
  export const RUTA_GET = 'http://localhost:3001/pokemons';
 
 export function getAllPokemons(){
@@ -36,6 +39,15 @@ export function filterPokesByBd(payload){
     }
 }
 
+export function filterMaxAtk(payload){
+    return async function (dispatch){  
+        return dispatch({
+            type: "FILTER_ATK",
+            payload
+        })
+    }
+}
+
 export function sorterByName(payload){
     return async function (dispatch){
         return dispatch({
@@ -53,6 +65,7 @@ export function sortAtk(payload){
         })
     }
 }
+
  export function postPokemon(payload){
     return async function(dispatch){
         const respuesta = await axios.post('http://localhost:3001/pokemons/post', payload);
@@ -95,6 +108,13 @@ export function getDetail(id){
         } catch (error) {
             console.log(error)
         }
+    }
+}
+
+export function resetDetail(){
+    return{
+        type: 'RESET_DETAIL',
+        payload: []
     }
 }
 

@@ -6,59 +6,49 @@
     flex-direction: row;
 }
 
-/* -------------BOTON---------- */
-/* From uiverse.io */
-/* button {
-    text-decoration: none;
-    position: absolute;
-    border: none;
-    font-size: 14px;
-    font-family: inherit;
-    color: #fff;
-    width: 5em;
-    height: 2em;
-    line-height: 2em;
+/* ----------------BOTONES---------------*/
+button {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
     text-align: center;
-    background: linear-gradient(90deg,#771b11,#f0ae21,#ffeb3b,hsl(26, 98%, 48%));
-    background-size: 300%;
-    border-radius: 30px;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    border: 3px solid #440404;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #c61313;
+    text-decoration: none;
+    transition: 0.3s ease all;
     z-index: 1;
-    margin: 5px;
-   }
-   
-   button:hover {
-    animation: ani 8s linear infinite;
-    border: none;
-   }
-   
-   @keyframes ani {
-    0% {
-     background-position: 0%;
-    }
-   
-    100% {
-     background-position: 400%;
-    }
    }
    
    button:before {
-    content: '';
+    transition: 0.5s all ease;
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #4c0303;
     z-index: -1;
-    background: linear-gradient(90deg,#9b0b0b,#f441a5,#ffeb3b,#03a9f4);
-    background-size: 400%;
-    border-radius: 35px;
-    transition: 1s;
    }
    
-   button:hover::before {
-    filter: blur(20px);
+   button:hover, button:focus {
+    color: rgb(212, 159, 36);
+   }
+   
+   button:hover:before, button:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
    }
    
    button:active {
-    background: linear-gradient(32deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
-   } */
+    transform: scale(0.9);
+   }

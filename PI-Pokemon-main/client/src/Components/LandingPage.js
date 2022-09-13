@@ -7,11 +7,12 @@ export default function LandingPage() {
   
   return (
     <div className={Style.container}>
-      <img className={Style.Fondo} src='https://images6.alphacoders.com/479/thumbbig-479708.webp' alt='imgPresentacion' />
-      <h1>Poke App</h1>
-      <Link to='/home'>
-        <button className={Style.btnWelcome}>Ingresar</button>
-      </Link>
+      <div>
+        <Link to='/home'>
+          <img className={Style.Fondo} src='https://i.pinimg.com/originals/9e/39/23/9e3923825ba4a4fa967858f980b8460f.png' alt='imgPresentacion' />
+        </Link>        
+      </div>
     </div>
   )
 }
+

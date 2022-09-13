@@ -33,8 +33,21 @@ function rootPokemon (state= initialState, action){
                     ...state,
                     pokemons: action.payload === 'all' ?
                     allPokemons2
-                    :created
+                    : created
                 }
+
+        case 'FILTER_ATK':
+            const allPokemons3 = state.allPokes
+            const  filteredMinMaxAtk =action.payload ==='minAtk'?
+            allPokemons3.filter(p=>p.attack<50)
+            : allPokemons3.filter(p=>p.attack>50)
+            return {
+                ...state,
+                pokemons: action.payload === 'all' ?
+                allPokemons3
+                :filteredMinMaxAtk.slice(0,5)
+            }
+
         case 'ORDER_BY_NAME':
             // console.log(state.pokemons);
             let  sortedApl = action.payload === 'ascAlp' ?
@@ -46,8 +59,6 @@ function rootPokemon (state= initialState, action){
                 return -1;
               }
               return 0;
-
-
             })
             : state.pokemons.sort(function(a,b){
                 if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -60,17 +71,10 @@ function rootPokemon (state= initialState, action){
             })
                 return {
                     ...state,
-                    pokemons: sortedApl
+                    pokemons: action.payload==='DEFAULT'?state.allPokes:sortedApl
                 }
-
-
-
-
-
-
-                
          case 'ORDER_BY_ATK':
-                let  sortedMinMax = [...state.allPokes]
+                let  sortedMinMax = [...state.pokemons]
                 sortedMinMax = action.payload === 'ascAtk' ?
                 sortedMinMax.sort(function(a,b){
                     return a.attack - b.attack
@@ -79,16 +83,17 @@ function rootPokemon (state= initialState, action){
                 })
                     return {
                         ...state,
-                        pokemons: sortedMinMax
+                        pokemons: action.payload==='DEFAULT'?state.allPokes:sortedMinMax
                     }
+
         case 'POST_POKEMON':
                 return{
-                    ...state,
+                    ...state.pokemons,
                 }
         case 'GET_ALL_TYPES':
                 return {
                     ...state,
-                    types: action.payload
+                    tipos: action.payload
                 }
         case 'GET_NAME_POKE':
                 return {
@@ -100,10 +105,13 @@ function rootPokemon (state= initialState, action){
                 ...state,
                 detail: action.payload
             }
+            case 'RESET_DETAIL':
+                return{
+                    ...state,
+                    detail: action.payload
+                }
         default:
-                // return {...state};
                 return state;
-
     }
 }
 

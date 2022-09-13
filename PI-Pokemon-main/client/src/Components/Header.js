@@ -18,7 +18,7 @@ export default function Header() {
       <div className={Style.btnera}>
         <button className={Style.btn} onClick={e=>{handleClickReset(e)}}>Resetear</button>
       </div>
-      <img src='https://i.pinimg.com/originals/9e/39/23/9e3923825ba4a4fa967858f980b8460f.png' width='450px' height='250px' alt='logo' />
+      <img src='https://i.pinimg.com/originals/9e/39/23/9e3923825ba4a4fa967858f980b8460f.png' width='400px' height='200px' alt='logo' />
       <Search />
     </div>
   )

@@ -1,10 +1,9 @@
-.boby{
-      background-color: red;  
+html{
+    background-color: #f6c71f;
 }
 .Fondo{
     width: 1000px;
     height: 600px;
-
 }
 .btnWelcome{
     width: 50px;

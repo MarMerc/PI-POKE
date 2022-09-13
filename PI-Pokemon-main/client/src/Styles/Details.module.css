@@ -1,3 +1,13 @@
+.gral{
+    background-image: url('https://images8.alphacoders.com/410/thumbbig-410380.webp');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 550px;
+    margin-top: -20px;
+  }
+
 .container {
     width: 700px;
     height: 500px;
@@ -58,10 +68,10 @@ justify-content: space-evenly;
     background-color: rgb(198, 12, 12);
     color: #d9a010;
     font-size: 40px;
-    width: 50px;
+    width: 70px;
     height: 50px;
     border-radius: 50px;
-    margin-left: 20px;
+    margin-left: 5px;
     margin-top: -20px;
 }
 
@@ -91,10 +101,10 @@ justify-content: space-evenly;
     background-color: rgb(198, 12, 12);
     color: #d9a010;
     font-size: 40px;
-    width: 50px;
+    width: 70px;
     height: 50px;
     border-radius: 50px;
-    margin-left: 20px;
+    margin-left: 5px;
     margin-top: -20px;
 }
 

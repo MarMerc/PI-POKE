@@ -6,26 +6,15 @@ import Card from './Card.js';
 import Paginated from './Paginated.js';
 import Style from '../Styles/Cards.module.css';
 
-export default function Cards() {
+export default function Cards({currentPokemons,pokemonsPerPage,setPokemonsPerPage,paginado,pokemons,currentPage,pageNumber}) {
   
   const dispatch= useDispatch();
-  const {pokemons} = useSelector((state)=>state);
-  const [orden,setOrden] = useState('');
-  const [currentPage,setCurrentPage]=useState(1);
-  const [pokemonsPerPage,setPokemonsPerPage]=useState(12);
-  const indexOfLastPokemons = currentPage*pokemonsPerPage;
-  const indexOfFirstPokemons = indexOfLastPokemons - pokemonsPerPage;
-  const currentPokemons = pokemons.slice(indexOfFirstPokemons,indexOfLastPokemons);
-  const paginado=(pageNumber)=>{
-    setCurrentPage(pageNumber);
-  }
 
   useEffect(()=>{
-    
-    dispatch(getAllPokemons());
+    if(pokemons.length===0){
+    dispatch(getAllPokemons())};
 },[dispatch]);
 
-  console.log(pokemons);
   return (
     <div className={Style.paginated}>
         <div className={Style.pageList}>
@@ -51,10 +40,13 @@ export default function Cards() {
                 
               </div>
               )
-            }):(<h2>No Hay Nada!</h2>)
+            }):(        
+              <div className="loading">
+                <p>Loading...</p>
+                <img src='https://c.tenor.com/Hg2Mb_mQdhYAAAAi/pokemon-pokeball.gif' alt="" />
+              </div>)
           }
       </div>      
     </div>
-
   )
 }
